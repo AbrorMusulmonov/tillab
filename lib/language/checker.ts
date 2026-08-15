@@ -72,7 +72,7 @@ export async function analyzeUzbekText(text: string): Promise<TextAnalysis> {
       const ai = await Promise.race([
         provider.analyzeUzbekText(text),
         new Promise<never>((_, reject) => {
-          setTimeout(() => reject(new Error("AI timeout")), 2500);
+          setTimeout(() => reject(new Error("AI timeout")), 8000);
         }),
       ]);
       const aiIssues = ai.issues

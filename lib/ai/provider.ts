@@ -1,4 +1,4 @@
-import { aiAnalysisSchema, type AIAnalysisResult } from "./schema";
+import { parseAnalysis, type AIAnalysisResult } from "./schema";
 import { AI_SYSTEM_PROMPT, type LanguageAIProvider } from "./types";
 
 function extractJson(text: string): unknown {
@@ -11,10 +11,6 @@ function extractJson(text: string): unknown {
     throw new Error("AI javobi JSON formatida emas.");
   }
   return JSON.parse(raw.slice(start, end + 1));
-}
-
-function parseAnalysis(payload: unknown): AIAnalysisResult {
-  return aiAnalysisSchema.parse(payload);
 }
 
 export class GeminiProvider implements LanguageAIProvider {
@@ -95,7 +91,7 @@ export class OpenAIProvider implements LanguageAIProvider {
 export class GroqProvider implements LanguageAIProvider {
   constructor(
     private readonly apiKey: string,
-    private readonly model = process.env.AI_MODEL || "llama-3.1-8b-instant",
+    private readonly model = process.env.AI_MODEL || "llama-3.3-70b-versatile",
   ) {}
 
   async analyzeUzbekText(text: string): Promise<AIAnalysisResult> {
@@ -105,7 +101,7 @@ export class GroqProvider implements LanguageAIProvider {
         "Content-Type": "application/json",
         Authorization: `Bearer ${this.apiKey}`,
       },
-      signal: AbortSignal.timeout(2500),
+      signal: AbortSignal.timeout(8000),
       body: JSON.stringify({
         model: this.model,
         temperature: 0.2,
@@ -120,7 +116,8 @@ export class GroqProvider implements LanguageAIProvider {
       }),
     });
     if (!response.ok) {
-      throw new Error(`Groq xatosi: ${response.status}`);
+      const detail = await response.text().catch(() => "");
+      throw new Error(`Groq xatosi: ${response.status} ${detail.slice(0, 200)}`);
     }
     const data = (await response.json()) as {
       choices?: { message?: { content?: string } }[];
@@ -130,10 +127,11 @@ export class GroqProvider implements LanguageAIProvider {
 }
 
 export function createAIProvider(): LanguageAIProvider | null {
-  const provider = (process.env.AI_PROVIDER || "gemini").toLowerCase();
-  const apiKey = process.env.AI_API_KEY;
+  const apiKey = process.env.AI_API_KEY?.trim();
   if (!apiKey) return null;
-  if (provider === "openai") return new OpenAIProvider(apiKey);
-  if (provider === "groq") return new GroqProvider(apiKey);
-  return new GeminiProvider(apiKey);
+  const provider = (process.env.AI_PROVIDER || "").toLowerCase();
+  if (apiKey.startsWith("gsk_") || provider === "groq") return new GroqProvider(apiKey);
+  if (provider === "openai" || apiKey.startsWith("sk-")) return new OpenAIProvider(apiKey);
+  if (provider === "gemini") return new GeminiProvider(apiKey);
+  return new GroqProvider(apiKey);
 }
