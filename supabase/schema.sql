@@ -30,27 +30,6 @@ create table if not exists public.text_contributions (
   created_at timestamptz not null default now()
 );
 
-create table if not exists public.audio_prompts (
-  id uuid primary key default gen_random_uuid(),
-  text text not null,
-  category text not null,
-  is_active boolean not null default true,
-  created_at timestamptz not null default now()
-);
-
-create table if not exists public.audio_contributions (
-  id uuid primary key default gen_random_uuid(),
-  user_id uuid not null references public.users(id) on delete cascade,
-  prompt_id uuid references public.audio_prompts(id),
-  audio_url text not null,
-  duration integer not null default 0,
-  region text,
-  age_range text,
-  gender text,
-  status public.contribution_status not null default 'pending',
-  created_at timestamptz not null default now()
-);
-
 create table if not exists public.alternative_words (
   id uuid primary key default gen_random_uuid(),
   foreign_word text not null,
@@ -91,12 +70,9 @@ on conflict (key) do nothing;
 
 alter table public.users enable row level security;
 alter table public.text_contributions enable row level security;
-alter table public.audio_contributions enable row level security;
 alter table public.alternative_suggestions enable row level security;
 alter table public.alternative_words enable row level security;
-alter table public.audio_prompts enable row level security;
 alter table public.text_checks enable row level security;
 alter table public.analytics_counters enable row level security;
 
 create policy "public read approved alternatives" on public.alternative_words for select using (true);
-create policy "public read prompts" on public.audio_prompts for select using (is_active = true);

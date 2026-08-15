@@ -7,10 +7,9 @@ export async function GET() {
     return Response.json({ error: "Ruxsat yo‘q." }, { status: 403 });
   }
   const store = getStore();
-  const [texts, audios, suggestions] = await Promise.all([
+  const [texts, suggestions] = await Promise.all([
     store.listTextContributions(),
-    store.listAudioContributions(),
     store.listAlternativeSuggestions(),
   ]);
-  return Response.json({ texts, audios, suggestions });
+  return Response.json({ texts, suggestions });
 }

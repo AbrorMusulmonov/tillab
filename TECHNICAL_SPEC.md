@@ -29,7 +29,7 @@ If AI fails, rule engine continues and the UI shows a graceful message.
 
 ## Privacy
 
-Text contributions run a basic PII detector (email, phone, card, passport-like tokens). Audio max 2 minutes / 20 MB. Strict MIME checks.
+Text contributions run a basic PII detector (email, phone, card, passport-like tokens).
 
 ## Auth
 

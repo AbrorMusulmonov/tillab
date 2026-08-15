@@ -36,7 +36,7 @@ export const authSchema = z.object({
 });
 
 export const contributionPatchSchema = z.object({
-  kind: z.enum(["text", "audio", "suggestion"]),
+  kind: z.enum(["text", "suggestion"]),
   status: z.enum(["pending", "approved", "rejected"]).optional(),
   category: z.string().optional(),
   region: z.string().optional(),

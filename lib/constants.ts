@@ -56,22 +56,6 @@ export const REGIONS = [
   "Xorazm",
 ] as const;
 
-export const AGE_RANGES = ["13–17", "18–24", "25–34", "35–44", "45–54", "55+"] as const;
-
-export const GENDERS = ["Ayol", "Erkak", "Boshqa", "Aytmaslik"] as const;
-
-export const AUDIO_MAX_SECONDS = 120;
-export const AUDIO_MAX_BYTES = 20 * 1024 * 1024;
-export const AUDIO_MIME_TYPES = [
-  "audio/webm",
-  "audio/wav",
-  "audio/mpeg",
-  "audio/mp4",
-  "audio/x-m4a",
-  "audio/mp3",
-  "audio/ogg",
-] as const;
-
 export const STATUS_LABELS: Record<string, string> = {
   pending: "Tekshirilmoqda",
   approved: "Tasdiqlangan",

@@ -11,14 +11,12 @@ export default async function ProfilePage() {
   const user = await getSession();
   if (!user) redirect("/login?next=/profile");
   const store = getStore();
-  const [texts, audios, suggestions] = await Promise.all([
+  const [texts, suggestions] = await Promise.all([
     store.listTextContributions({ userId: user.id }),
-    store.listAudioContributions({ userId: user.id }),
     store.listAlternativeSuggestions({ userId: user.id }),
   ]);
   const history = [
     ...texts.map((item) => ({ id: item.id, type: "Matn", date: item.createdAt, status: item.status })),
-    ...audios.map((item) => ({ id: item.id, type: "Audio", date: item.createdAt, status: item.status })),
     ...suggestions.map((item) => ({ id: item.id, type: "Muqobil", date: item.createdAt, status: item.status })),
   ].sort((a, b) => +new Date(b.date) - +new Date(a.date));
 
@@ -38,11 +36,10 @@ export default async function ProfilePage() {
           <LogoutButton />
         </div>
       </div>
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-8 grid gap-4 sm:grid-cols-3">
         {[
           { label: "Contributions", value: history.length },
           { label: "Text samples", value: texts.length },
-          { label: "Audio samples", value: audios.length },
           { label: "Alternative suggestions", value: suggestions.length },
         ].map((item) => (
           <Card key={item.label}>

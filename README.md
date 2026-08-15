@@ -17,7 +17,7 @@ TilLab bitta platformada:
 - o‘zbekcha matnni tekshiradi va tabiiyroq variantlar taklif qiladi;
 - lotin va kirill yozuvlarini kontekstga qarab o‘giradi;
 - begona so‘zlar uchun o‘zbekcha muqobillarni qidirish imkonini beradi;
-- rozilik asosida matn va audio namunalarini yig‘adi;
+- rozilik asosida matn namunalarini yig‘adi;
 - faqat tasdiqlangan hissalar asosida haqiqiy statistikani ko‘rsatadi.
 
 ## Features
@@ -25,7 +25,7 @@ TilLab bitta platformada:
 - **Tekshiruvchi** — qoida asosidagi tahlil, ixtiyoriy Gemini / OpenAI / Groq qatlami
 - **Transliterator** — `o‘`, `g‘`, `sh`, `ch`, `ng`, `ya`, `yu`, `yo` uchun kontekstli qoidalar
 - **Muqobillar** — 50+ so‘z, turkum filtri, jamoa takliflari
-- **Hissa** — matn va audio (yozish yoki yuklash), PII filtri, rozilik
+- **Hissa** — matn qo‘shish, PII filtri, rozilik
 - **Ma’lumotlar banki** — tasdiqlangan namunalar statistikasi, xom dataset ochiq emas
 - **Admin** — pending hissalarni tasdiqlash yoki rad etish
 
@@ -37,8 +37,7 @@ Ishga tushirgach asosiy oqim:
 2. `Bu proyekt studentlarga yangi opportunity beradi.` → `Bu loyiha talabalarga yangi imkoniyat beradi.`
 3. Lotin → Kirill
 4. `registratsiya` → `ro‘yxatdan o‘tish`
-5. Audio gapni o‘qish
-6. Dataset statistikasi
+5. Dataset statistikasi
 
 ## Architecture
 

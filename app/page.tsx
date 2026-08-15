@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Languages, Library, Mic, SpellCheck } from "lucide-react";
+import { Languages, Library, FileText, SpellCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { getStore } from "@/lib/store";
@@ -53,9 +53,9 @@ export default async function HomePage() {
           },
           {
             href: "/contribute",
-            icon: Mic,
+            icon: FileText,
             title: "Til ma’lumotlar banki",
-            text: "O‘zbekcha matn va audio ma’lumotlarni to‘plash.",
+            text: "O‘zbekcha matn namunalarini to‘plash.",
           },
         ].map((item) => (
           <Link key={item.href} href={item.href}>
@@ -75,7 +75,7 @@ export default async function HomePage() {
           {[
             { label: "tekshirilgan matn", value: stats.textChecks },
             { label: "til namunasi", value: stats.textSamples },
-            { label: "audio yozuv", value: stats.audioSamples },
+            { label: "o‘girilgan matn", value: stats.transliterations },
             { label: "foydalanuvchi hissasi", value: stats.approvedContributions },
           ].map((item) => (
             <div key={item.label}>

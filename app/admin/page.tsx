@@ -20,12 +20,11 @@ export default async function AdminPage() {
         <Link href="/admin/users">Foydalanuvchilar</Link>
         <Link href="/admin/statistics">Statistika</Link>
       </div>
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {[
           { label: "Total users", value: stats.totalUsers },
           { label: "Pending contributions", value: stats.pendingContributions },
           { label: "Approved contributions", value: stats.approvedContributions },
-          { label: "Audio hours", value: Number((stats.audioSeconds / 3600).toFixed(2)) },
           { label: "Words collected", value: stats.totalWords },
         ].map((item) => (
           <Card key={item.label}>

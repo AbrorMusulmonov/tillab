@@ -7,9 +7,8 @@ export default async function AdminContributionsPage() {
   const user = await getSession();
   if (!user || user.role !== "admin") redirect("/");
   const store = getStore();
-  const [texts, audios, suggestions, users] = await Promise.all([
+  const [texts, suggestions, users] = await Promise.all([
     store.listTextContributions(),
-    store.listAudioContributions(),
     store.listAlternativeSuggestions(),
     store.listUsers(),
   ]);
@@ -18,7 +17,7 @@ export default async function AdminContributionsPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
       <h1 className="text-3xl font-semibold">Hissalarni tekshirish</h1>
-      <ModerationTable texts={texts} audios={audios} suggestions={suggestions} names={names} />
+      <ModerationTable texts={texts} suggestions={suggestions} names={names} />
     </div>
   );
 }

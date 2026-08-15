@@ -17,7 +17,6 @@ export default async function AdminStatisticsPage() {
           ["Transliteratsiyalar", stats.transliterations],
           ["Ishtirokchilar", stats.contributors],
           ["Matn hissalari", stats.textSamples],
-          ["Audio hissalari", stats.audioSamples],
           ["Foydalanuvchilar", stats.totalUsers],
         ].map(([label, value]) => (
           <Card key={String(label)}>

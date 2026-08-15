@@ -16,7 +16,7 @@ export default async function DatasetPage() {
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {[
           { label: "Text Samples", value: stats.textSamples },
-          { label: "Audio Samples", value: stats.audioSamples },
+          { label: "Text Checks", value: stats.textChecks },
           { label: "Total Words", value: stats.totalWords },
           { label: "Contributors", value: stats.contributors },
         ].map((item) => (

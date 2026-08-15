@@ -78,35 +78,12 @@ export type TextContribution = {
   createdAt: string;
 };
 
-export type AudioContribution = {
-  id: string;
-  userId: string;
-  promptId: string;
-  promptText: string;
-  audioUrl: string;
-  duration: number;
-  region?: string;
-  ageRange?: string;
-  gender?: string;
-  status: ContributionStatus;
-  createdAt: string;
-};
-
-export type AudioPrompt = {
-  id: string;
-  text: string;
-  category: string;
-  isActive: boolean;
-};
-
 export type DatasetStats = {
   textSamples: number;
-  audioSamples: number;
   totalWords: number;
   contributors: number;
   textChecks: number;
   transliterations: number;
-  audioSeconds: number;
   pendingContributions: number;
   approvedContributions: number;
   totalUsers: number;

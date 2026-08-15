@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
-    "seed": "node -e \"const a=require('./data/alternatives.json'); const p=require('./data/audio-prompts.json'); if (a.length < 50 || p.length < 20) process.exit(1); console.log('Seed OK', a.length, 'alternatives,', p.length, 'prompts');\""
+    "seed": "node -e \"const a=require('./data/alternatives.json'); if (a.length < 50) process.exit(1); console.log('Seed OK', a.length, 'alternatives');\""
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.4",

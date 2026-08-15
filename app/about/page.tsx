@@ -3,7 +3,7 @@ export default function AboutPage() {
     <div className="mx-auto max-w-3xl px-4 py-12 leading-8">
       <h1 className="text-3xl font-semibold">Biz haqimizda</h1>
       <p className="mt-4 text-muted-foreground">
-        TilLab — o‘zbek tilidagi matn va nutq ma’lumotlarini yaxshilash, tizimlashtirish va ko‘paytirishga xizmat
+        TilLab — o‘zbek tilidagi matn ma’lumotlarini yaxshilash, tizimlashtirish va ko‘paytirishga xizmat
         qiluvchi raqamli til infratuzilmasi.
       </p>
       <p className="mt-4">
