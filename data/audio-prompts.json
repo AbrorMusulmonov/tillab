@@ -1,0 +1,122 @@
+[
+  {
+    "id": "1",
+    "text": "Bugun Toshkentda havo iliq va quyoshli.",
+    "category": "Kundalik hayot",
+    "isActive": true
+  },
+  {
+    "id": "2",
+    "text": "O‘zbek tili boy va ohangdor tildir.",
+    "category": "Madaniyat",
+    "isActive": true
+  },
+  {
+    "id": "3",
+    "text": "Talabalar kutubxonada yangi kitoblar o‘qishdi.",
+    "category": "Ta’lim",
+    "isActive": true
+  },
+  {
+    "id": "4",
+    "text": "Samarqandning qadimiy ko‘chalari sayyohlarni o‘ziga tortadi.",
+    "category": "Madaniyat",
+    "isActive": true
+  },
+  {
+    "id": "5",
+    "text": "Yangi dastur o‘zbek tilidagi matnlarni tahlil qiladi.",
+    "category": "Texnologiya",
+    "isActive": true
+  },
+  {
+    "id": "6",
+    "text": "Bahorda bog‘larda gullar ochilib, havo xushbo‘y bo‘ladi.",
+    "category": "Kundalik hayot",
+    "isActive": true
+  },
+  {
+    "id": "7",
+    "text": "Olimlar tabiiy tilni qayta ishlash usullarini rivojlantirmoqda.",
+    "category": "Ilm",
+    "isActive": true
+  },
+  {
+    "id": "8",
+    "text": "Farg‘ona vodiysida mehnatsevar xalq yashaydi.",
+    "category": "Madaniyat",
+    "isActive": true
+  },
+  {
+    "id": "9",
+    "text": "Bolalar maktabda ona tilini chuqur o‘rganishadi.",
+    "category": "Ta’lim",
+    "isActive": true
+  },
+  {
+    "id": "10",
+    "text": "Xalq og‘zaki ijodi avloddan avlodga o‘tib kelgan.",
+    "category": "Madaniyat",
+    "isActive": true
+  },
+  {
+    "id": "11",
+    "text": "Navoiy asarlari o‘zbek adabiyotining durdonasidir.",
+    "category": "Tarix",
+    "isActive": true
+  },
+  {
+    "id": "12",
+    "text": "Bugun bozordan yangi meva va sabzavot oldik.",
+    "category": "Kundalik hayot",
+    "isActive": true
+  },
+  {
+    "id": "13",
+    "text": "Ilm-fan jamiyat taraqqiyotining muhim asosidir.",
+    "category": "Ilm",
+    "isActive": true
+  },
+  {
+    "id": "14",
+    "text": "Tadbirkorlar mahalliy mahsulotlarni xorijga chiqarmoqda.",
+    "category": "Biznes",
+    "isActive": true
+  },
+  {
+    "id": "15",
+    "text": "Qishloqda tongda xo‘rozlar qichqirib, kun boshlanadi.",
+    "category": "Kundalik hayot",
+    "isActive": true
+  },
+  {
+    "id": "16",
+    "text": "Buxoro arklari ming yillik tarixdan so‘zlaydi.",
+    "category": "Tarix",
+    "isActive": true
+  },
+  {
+    "id": "17",
+    "text": "O‘qituvchi darsda yangi mavzuni tushuntirdi.",
+    "category": "Ta’lim",
+    "isActive": true
+  },
+  {
+    "id": "18",
+    "text": "Internet orqali bilim olish imkoniyati kengaymoqda.",
+    "category": "Texnologiya",
+    "isActive": true
+  },
+  {
+    "id": "19",
+    "text": "Do‘stlar choyxona atrofida suhbatlashib o‘tirishdi.",
+    "category": "Kundalik hayot",
+    "isActive": true
+  },
+  {
+    "id": "20",
+    "text": "Yoshlar ona tilini asrab-avaylashga hissa qo‘shmoqda.",
+    "category": "Madaniyat",
+    "isActive": true
+  }
+]

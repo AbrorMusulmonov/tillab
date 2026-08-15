@@ -1,0 +1,116 @@
+export type UserRole = "user" | "admin";
+
+export type ContributionStatus = "pending" | "approved" | "rejected";
+
+export type IssueType = "spelling" | "style" | "foreign_word" | "punctuation";
+
+export type TextIssue = {
+  id: string;
+  type: IssueType;
+  original: string;
+  suggestion: string;
+  explanation: string;
+  start: number;
+  end: number;
+};
+
+export type TextAnalysis = {
+  originalText: string;
+  correctedText: string;
+  issues: TextIssue[];
+  statistics: {
+    words: number;
+    characters: number;
+    issues: number;
+  };
+  aiAvailable?: boolean;
+  aiMessage?: string;
+};
+
+export type AlternativeWord = {
+  id: string;
+  foreignWord: string;
+  language?: string;
+  alternatives: string[];
+  definition?: string;
+  examples?: string[];
+  category?: string;
+  usage?: string;
+};
+
+export type AlternativeSuggestion = {
+  id: string;
+  userId: string;
+  word: string;
+  alternative: string;
+  explanation: string;
+  example?: string;
+  status: ContributionStatus;
+  createdAt: string;
+};
+
+export type AppUser = {
+  id: string;
+  email: string;
+  name: string;
+  avatarUrl?: string;
+  role: UserRole;
+  createdAt: string;
+  passwordHash?: string;
+};
+
+export type SessionUser = {
+  id: string;
+  email: string;
+  name: string;
+  role: UserRole;
+};
+
+export type TextContribution = {
+  id: string;
+  userId: string;
+  text: string;
+  category: string;
+  textType: string;
+  region: string;
+  status: ContributionStatus;
+  wordCount: number;
+  createdAt: string;
+};
+
+export type AudioContribution = {
+  id: string;
+  userId: string;
+  promptId: string;
+  promptText: string;
+  audioUrl: string;
+  duration: number;
+  region?: string;
+  ageRange?: string;
+  gender?: string;
+  status: ContributionStatus;
+  createdAt: string;
+};
+
+export type AudioPrompt = {
+  id: string;
+  text: string;
+  category: string;
+  isActive: boolean;
+};
+
+export type DatasetStats = {
+  textSamples: number;
+  audioSamples: number;
+  totalWords: number;
+  contributors: number;
+  textChecks: number;
+  transliterations: number;
+  audioSeconds: number;
+  pendingContributions: number;
+  approvedContributions: number;
+  totalUsers: number;
+  categories: Record<string, number>;
+};
+
+export type TransliterateDirection = "latin-to-cyrillic" | "cyrillic-to-latin";

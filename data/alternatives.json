@@ -1,0 +1,562 @@
+[
+  {
+    "id": "alt-001",
+    "foreignWord": "proyekt",
+    "language": "Russian",
+    "alternatives": ["loyiha"],
+    "definition": "Muayyan maqsadga erishish uchun rejalashtirilgan ish yoki tashabbus.",
+    "examples": ["Yangi ta’lim loyihasi maktablarda sinovdan o‘tkazildi."],
+    "category": "Texnologiya",
+    "usage": "Rasmiy va ilmiy matn"
+  },
+  {
+    "id": "alt-002",
+    "foreignWord": "student",
+    "language": "English",
+    "alternatives": ["talaba"],
+    "definition": "Oliy yoki o‘rta maxsus ta’lim muassasasida o‘qiydigan shaxs.",
+    "examples": ["Talabalar kutubxonada mustaqil ish yozishdi."],
+    "category": "Ta’lim",
+    "usage": "Ta’lim"
+  },
+  {
+    "id": "alt-003",
+    "foreignWord": "registratsiya",
+    "language": "Russian",
+    "alternatives": ["ro‘yxatdan o‘tish", "ro‘yxatga olish"],
+    "definition": "Shaxs yoki ma’lumotni rasmiy ro‘yxatga kiritish jarayoni.",
+    "examples": ["Tadbirga oldindan ro‘yxatdan o‘tish kerak."],
+    "category": "Davlat boshqaruvi",
+    "usage": "Rasmiy hujjatlar"
+  },
+  {
+    "id": "alt-004",
+    "foreignWord": "programma",
+    "language": "Russian",
+    "alternatives": ["dastur"],
+    "definition": "Kompyuter yoki tashkilot faoliyatini boshqaruvchi reja yoki vosita.",
+    "examples": ["Yangi dastur matnni tahlil qiladi."],
+    "category": "Texnologiya",
+    "usage": "Texnika va boshqaruv"
+  },
+  {
+    "id": "alt-005",
+    "foreignWord": "informatsiya",
+    "language": "Russian",
+    "alternatives": ["axborot", "ma’lumot"],
+    "definition": "Biror voqea, holat yoki narsa haqidagi xabar.",
+    "examples": ["Rasmiy axborot e’lon qilindi."],
+    "category": "Davlat boshqaruvi",
+    "usage": "Ommaviy axborot"
+  },
+  {
+    "id": "alt-006",
+    "foreignWord": "prezentatsiya",
+    "language": "Russian",
+    "alternatives": ["taqdimot"],
+    "definition": "G‘oya yoki natijani tinglovchilarga ko‘rsatib tushuntirish.",
+    "examples": ["Jamoa o‘z ishining taqdimotini o‘tkazdi."],
+    "category": "Biznes",
+    "usage": "Ish va ta’lim"
+  },
+  {
+    "id": "alt-007",
+    "foreignWord": "dokument",
+    "language": "Russian",
+    "alternatives": ["hujjat"],
+    "definition": "Rasmiy yozma dalil yoki qog‘oz.",
+    "examples": ["Hujjatni idoraga topshirish kerak."],
+    "category": "Davlat boshqaruvi",
+    "usage": "Rasmiy ish yuritish"
+  },
+  {
+    "id": "alt-008",
+    "foreignWord": "komfort",
+    "language": "Russian",
+    "alternatives": ["qulaylik"],
+    "definition": "Qulay va xotirjam sharoit.",
+    "examples": ["Yangi binoda ishlash qulayligi oshdi."],
+    "category": "Kundalik hayot",
+    "usage": "Kundalik nutq"
+  },
+  {
+    "id": "alt-009",
+    "foreignWord": "aktiv",
+    "language": "Russian",
+    "alternatives": ["faol"],
+    "definition": "Harakatchan, ishtirok etuvchi, ishchan.",
+    "examples": ["U darsda faol qatnashadi."],
+    "category": "Ta’lim",
+    "usage": "Umumiy uslub"
+  },
+  {
+    "id": "alt-010",
+    "foreignWord": "praktika",
+    "language": "Russian",
+    "alternatives": ["amaliyot"],
+    "definition": "Nazariyani hayotda qo‘llash jarayoni.",
+    "examples": ["Talabalar maktabda amaliyot o‘tamoqda."],
+    "category": "Ta’lim",
+    "usage": "Ta’lim va kasb"
+  },
+  {
+    "id": "alt-011",
+    "foreignWord": "motivatsiya",
+    "language": "Russian",
+    "alternatives": ["ruh", "rag‘bat", "ichki turtki", "qiziqish"],
+    "definition": "Insonni ishga undovchi ichki yoki tashqi sabab.",
+    "examples": ["Yaxshi rag‘bat o‘qishga bo‘lgan qiziqishni oshiradi."],
+    "category": "Ta’lim",
+    "usage": "Psixologiya va ta’lim"
+  },
+  {
+    "id": "alt-012",
+    "foreignWord": "opportunity",
+    "language": "English",
+    "alternatives": ["imkoniyat"],
+    "definition": "Biror ishni amalga oshirish uchun ochilgan sharoit.",
+    "examples": ["Bu loyiha yoshlarga yangi imkoniyat beradi."],
+    "category": "Biznes",
+    "usage": "Umumiy uslub"
+  },
+  {
+    "id": "alt-013",
+    "foreignWord": "organizatsiya",
+    "language": "Russian",
+    "alternatives": ["tashkilot"],
+    "definition": "Muayyan maqsad atrofida birlashgan muassasa yoki jamoa.",
+    "examples": ["Tashkilot yangi dastur e’lon qildi."],
+    "category": "Davlat boshqaruvi",
+    "usage": "Rasmiy matn"
+  },
+  {
+    "id": "alt-014",
+    "foreignWord": "administratsiya",
+    "language": "Russian",
+    "alternatives": ["ma’muriyat"],
+    "definition": "Muassasani boshqaruvchi organ.",
+    "examples": ["Maktab ma’muriyati ota-onalar bilan uchrashdi."],
+    "category": "Davlat boshqaruvi",
+    "usage": "Rasmiy boshqaruv"
+  },
+  {
+    "id": "alt-015",
+    "foreignWord": "konsultatsiya",
+    "language": "Russian",
+    "alternatives": ["maslahat"],
+    "definition": "Mutaxassisning tushuntirishi yoki yo‘l-yo‘riq berishi.",
+    "examples": ["Shifokordan maslahat olish foydali."],
+    "category": "Kundalik hayot",
+    "usage": "Xizmat va ta’lim"
+  },
+  {
+    "id": "alt-016",
+    "foreignWord": "ekspert",
+    "language": "Russian",
+    "alternatives": ["mutaxassis"],
+    "definition": "Muayyan sohada chuqur bilimga ega shaxs.",
+    "examples": ["Mutaxassis hisobotni ko‘rib chiqdi."],
+    "category": "Ilm-fan",
+    "usage": "Kasbiy nutq"
+  },
+  {
+    "id": "alt-017",
+    "foreignWord": "trening",
+    "language": "English",
+    "alternatives": ["mashg‘ulot"],
+    "definition": "Ko‘nikma hosil qilishga qaratilgan o‘quv mashg‘uloti.",
+    "examples": ["O‘qituvchilar uchun malaka oshirish mashg‘uloti o‘tkazildi."],
+    "category": "Ta’lim",
+    "usage": "Ta’lim"
+  },
+  {
+    "id": "alt-018",
+    "foreignWord": "konferensiya",
+    "language": "Russian",
+    "alternatives": ["anjuman"],
+    "definition": "Mutaxassislar yoki ishtirokchilarning ilmiy yoki rasmiy yig‘ini.",
+    "examples": ["Xalqaro anjumanda yangi tadqiqotlar muhokama qilindi."],
+    "category": "Ilm-fan",
+    "usage": "Ilmiy va rasmiy tadbir"
+  },
+  {
+    "id": "alt-019",
+    "foreignWord": "sertifikat",
+    "language": "Russian",
+    "alternatives": ["guvohnoma"],
+    "definition": "Biror malaka yoki huquqni tasdiqlovchi hujjat.",
+    "examples": ["Kursni tugatganlarga guvohnoma berildi."],
+    "category": "Ta’lim",
+    "usage": "Hujjatlar"
+  },
+  {
+    "id": "alt-020",
+    "foreignWord": "problema",
+    "language": "Russian",
+    "alternatives": ["muammo"],
+    "definition": "Yechim talab qiladigan qiyinchilik yoki savol.",
+    "examples": ["Bu muammo ochiq muhokamaga qo‘yildi."],
+    "category": "Kundalik hayot",
+    "usage": "Umumiy uslub"
+  },
+  {
+    "id": "alt-021",
+    "foreignWord": "plan",
+    "language": "Russian",
+    "alternatives": ["reja"],
+    "definition": "Oldindan belgilangan ishlar ketma-ketligi.",
+    "examples": ["Yillik ish reja tasdiqlandi."],
+    "category": "Biznes",
+    "usage": "Boshqaruv"
+  },
+  {
+    "id": "alt-022",
+    "foreignWord": "kontrol",
+    "language": "Russian",
+    "alternatives": ["nazorat"],
+    "definition": "Ish yoki holatni kuzatib, tekshirib borish.",
+    "examples": ["Sifat nazorati kuchaytirildi."],
+    "category": "Davlat boshqaruvi",
+    "usage": "Rasmiy boshqaruv"
+  },
+  {
+    "id": "alt-023",
+    "foreignWord": "sistema",
+    "language": "Russian",
+    "alternatives": ["tizim"],
+    "definition": "O‘zaro bog‘liq qismlardan tashkil topgan butunlik.",
+    "examples": ["Yangi ta’lim tizimi joriy etildi."],
+    "category": "Texnologiya",
+    "usage": "Texnika va boshqaruv"
+  },
+  {
+    "id": "alt-024",
+    "foreignWord": "servis",
+    "language": "Russian",
+    "alternatives": ["xizmat"],
+    "definition": "Ehtiyojni qondirishga qaratilgan yordam yoki ish.",
+    "examples": ["Aholiga ko‘rsatiladigan xizmat sifati oshdi."],
+    "category": "Kundalik hayot",
+    "usage": "Xizmat ko‘rsatish"
+  },
+  {
+    "id": "alt-025",
+    "foreignWord": "ofis",
+    "language": "English",
+    "alternatives": ["idora"],
+    "definition": "Ish yuritiladigan xona yoki muassasa.",
+    "examples": ["Hujjatlar idorada saqlanadi."],
+    "category": "Biznes",
+    "usage": "Ish yuritish"
+  },
+  {
+    "id": "alt-026",
+    "foreignWord": "menedjer",
+    "language": "English",
+    "alternatives": ["boshqaruvchi"],
+    "definition": "Jamoa yoki jarayonni boshqaradigan shaxs.",
+    "examples": ["Loyiha boshqaruvchisi vazifalarni taqsimladi."],
+    "category": "Biznes",
+    "usage": "Mehnat va boshqaruv"
+  },
+  {
+    "id": "alt-027",
+    "foreignWord": "deadline",
+    "language": "English",
+    "alternatives": ["muddat"],
+    "definition": "Ishni tugatish kerak bo‘lgan oxirgi vaqt.",
+    "examples": ["Topshiriqning muddati juma kuni."],
+    "category": "Biznes",
+    "usage": "Ish jarayoni"
+  },
+  {
+    "id": "alt-028",
+    "foreignWord": "meeting",
+    "language": "English",
+    "alternatives": ["yig‘ilish"],
+    "definition": "Masalani muhokama qilish uchun odamlarning yig‘ilishi.",
+    "examples": ["Ertalab qisqa yig‘ilish o‘tkazildi."],
+    "category": "Biznes",
+    "usage": "Ish va tashkilot"
+  },
+  {
+    "id": "alt-029",
+    "foreignWord": "online",
+    "language": "English",
+    "alternatives": ["internet orqali", "tarmoqda"],
+    "definition": "Internet tarmog‘i orqali amalga oshiriladigan faoliyat.",
+    "examples": ["Dars internet orqali o‘tkazildi."],
+    "category": "Internet",
+    "usage": "Raqamli muhit"
+  },
+  {
+    "id": "alt-030",
+    "foreignWord": "parol",
+    "language": "Russian",
+    "alternatives": ["maxfiy so‘z"],
+    "definition": "Hisobga kirishni himoya qiluvchi yashirin so‘z yoki belgi.",
+    "examples": ["Maxfiy so‘zni boshqalar bilan ulashmang."],
+    "category": "Internet",
+    "usage": "Xavfsizlik"
+  },
+  {
+    "id": "alt-031",
+    "foreignWord": "kontent",
+    "language": "English",
+    "alternatives": ["mazmun"],
+    "definition": "Matn, audio yoki tasvirdagi asosiy ma’no.",
+    "examples": ["Sahifa mazmuni o‘zbek tilida yozilgan."],
+    "category": "Internet",
+    "usage": "Media"
+  },
+  {
+    "id": "alt-032",
+    "foreignWord": "rezyume",
+    "language": "Russian",
+    "alternatives": ["tarjimai hol"],
+    "definition": "Shaxsning ish va o‘qish tajribasi haqidagi qisqa ma’lumot.",
+    "examples": ["Ishga tarjimai hol yuborildi."],
+    "category": "Biznes",
+    "usage": "Mehnat"
+  },
+  {
+    "id": "alt-033",
+    "foreignWord": "vakansiya",
+    "language": "Russian",
+    "alternatives": ["bo‘sh ish o‘rni"],
+    "definition": "To‘ldirilishi kerak bo‘lgan ish o‘rni.",
+    "examples": ["Maktabda o‘qituvchi uchun bo‘sh ish o‘rni e’lon qilindi."],
+    "category": "Biznes",
+    "usage": "Mehnat bozori"
+  },
+  {
+    "id": "alt-034",
+    "foreignWord": "lektsiya",
+    "language": "Russian",
+    "alternatives": ["ma’ruza"],
+    "definition": "O‘qituvchining og‘zaki tushuntirish mashg‘uloti.",
+    "examples": ["Professor yangi mavzu bo‘yicha ma’ruza o‘qidi."],
+    "category": "Ta’lim",
+    "usage": "Oliy ta’lim"
+  },
+  {
+    "id": "alt-035",
+    "foreignWord": "test",
+    "language": "English",
+    "alternatives": ["sinov"],
+    "definition": "Bilim yoki sifatni tekshirish usuli.",
+    "examples": ["Dars yakunida qisqa sinov o‘tkazildi."],
+    "category": "Ta’lim",
+    "usage": "Baholash"
+  },
+  {
+    "id": "alt-036",
+    "foreignWord": "funksiya",
+    "language": "Russian",
+    "alternatives": ["vazifa"],
+    "definition": "Biror narsaning bajaradigan ishi yoki roli.",
+    "examples": ["Ushbu bo‘limning vazifasi ma’lumot to‘plashdir."],
+    "category": "Davlat boshqaruvi",
+    "usage": "Boshqaruv va texnika"
+  },
+  {
+    "id": "alt-037",
+    "foreignWord": "kompaniya",
+    "language": "Russian",
+    "alternatives": ["korxona", "jamiyat"],
+    "definition": "Tadbirkorlik faoliyatini yurituvchi tashkilot.",
+    "examples": ["Korxona yangi mahsulot chiqardi."],
+    "category": "Biznes",
+    "usage": "Iqtisodiyot"
+  },
+  {
+    "id": "alt-038",
+    "foreignWord": "brend",
+    "language": "English",
+    "alternatives": ["savdo belgisi"],
+    "definition": "Mahsulot yoki tashkilotni ajratib turuvchi nom yoki belgi.",
+    "examples": ["Mahalliy savdo belgisi bozorda tanildi."],
+    "category": "Biznes",
+    "usage": "Savdo"
+  },
+  {
+    "id": "alt-039",
+    "foreignWord": "startap",
+    "language": "English",
+    "alternatives": ["yangidan tashkil etilgan korxona"],
+    "definition": "Yangi g‘oya asosida endigina yo‘lga qo‘yilgan tadbirkorlik tashabbusi.",
+    "examples": ["Yoshlar yangidan tashkil etilgan korxona ochishdi."],
+    "category": "Biznes",
+    "usage": "Tadbirkorlik"
+  },
+  {
+    "id": "alt-040",
+    "foreignWord": "innovatsiya",
+    "language": "Russian",
+    "alternatives": ["yangilik"],
+    "definition": "Yangi yondashuv, usul yoki mahsulot.",
+    "examples": ["Ta’limdagi yangilik dars sifatini oshirdi."],
+    "category": "Ilm-fan",
+    "usage": "Ilm va ishlab chiqarish"
+  },
+  {
+    "id": "alt-041",
+    "foreignWord": "effektiv",
+    "language": "Russian",
+    "alternatives": ["samarali"],
+    "definition": "Kutilgan natijani yaxshi beradigan.",
+    "examples": ["Bu usul darsni samarali qildi."],
+    "category": "Ta’lim",
+    "usage": "Umumiy uslub"
+  },
+  {
+    "id": "alt-042",
+    "foreignWord": "aktual",
+    "language": "Russian",
+    "alternatives": ["dolzarb"],
+    "definition": "Hozirgi vaqt uchun muhim va kerakli.",
+    "examples": ["Til masalasi dolzarb mavzudir."],
+    "category": "Davlat boshqaruvi",
+    "usage": "Rasmiy nutq"
+  },
+  {
+    "id": "alt-043",
+    "foreignWord": "perspektiva",
+    "language": "Russian",
+    "alternatives": ["istiqbol"],
+    "definition": "Kelajakdagi imkoniyat yoki yo‘nalish.",
+    "examples": ["Loyihaning istiqboli keng."],
+    "category": "Biznes",
+    "usage": "Rejalashtirish"
+  },
+  {
+    "id": "alt-044",
+    "foreignWord": "kvalitet",
+    "language": "Russian",
+    "alternatives": ["sifat"],
+    "definition": "Narsaning yaxshilik darajasi.",
+    "examples": ["Matn sifati sezilarli yaxshilandi."],
+    "category": "Kundalik hayot",
+    "usage": "Umumiy uslub"
+  },
+  {
+    "id": "alt-045",
+    "foreignWord": "rezultat",
+    "language": "Russian",
+    "alternatives": ["natija"],
+    "definition": "Amalning yakuni yoki ko‘rinishi.",
+    "examples": ["Tadqiqot natijasi e’lon qilindi."],
+    "category": "Ilm-fan",
+    "usage": "Ilmiy va rasmiy matn"
+  },
+  {
+    "id": "alt-046",
+    "foreignWord": "tema",
+    "language": "Russian",
+    "alternatives": ["mavzu"],
+    "definition": "Suhbat, dars yoki matnning asosiy yo‘nalishi.",
+    "examples": ["Bugungi dars mavzusi ona tilidir."],
+    "category": "Ta’lim",
+    "usage": "Ta’lim"
+  },
+  {
+    "id": "alt-047",
+    "foreignWord": "ideya",
+    "language": "Russian",
+    "alternatives": ["g‘oya"],
+    "definition": "Fikr, tushuncha yoki yangi yondashuv.",
+    "examples": ["Bu g‘oya jamoani ilhomlantirdi."],
+    "category": "Kundalik hayot",
+    "usage": "Umumiy uslub"
+  },
+  {
+    "id": "alt-048",
+    "foreignWord": "akkount",
+    "language": "English",
+    "alternatives": ["hisob"],
+    "definition": "Tizimga kirish uchun shaxsiy sahifa.",
+    "examples": ["Hisobingizni himoya qiling."],
+    "category": "Internet",
+    "usage": "Raqamli xizmatlar"
+  },
+  {
+    "id": "alt-049",
+    "foreignWord": "fayl",
+    "language": "English",
+    "alternatives": ["hujjat", "fayl"],
+    "definition": "Kompyuterda saqlanadigan ma’lumot to‘plami.",
+    "examples": ["Hujjatni saqlab qo‘ying."],
+    "category": "Texnologiya",
+    "usage": "Kompyuter"
+  },
+  {
+    "id": "alt-050",
+    "foreignWord": "sayt",
+    "language": "Russian",
+    "alternatives": ["veb-sahifa"],
+    "definition": "Internetdagi axborot sahifasi yoki manzil.",
+    "examples": ["Rasmiy veb-sahifada e’lon chiqdi."],
+    "category": "Internet",
+    "usage": "Internet"
+  },
+  {
+    "id": "alt-051",
+    "foreignWord": "bloger",
+    "language": "English",
+    "alternatives": ["blog muallifi", "tarmoq muallifi"],
+    "definition": "Internetda muntazam mazmun joylashtiruvchi shaxs.",
+    "examples": ["Tarmoq muallifi ona tili haqida yozdi."],
+    "category": "Internet",
+    "usage": "Media"
+  },
+  {
+    "id": "alt-052",
+    "foreignWord": "marketing",
+    "language": "English",
+    "alternatives": ["bozorni o‘rganish", "savdo tashviqoti"],
+    "definition": "Mahsulotni bozorga chiqarish va tanitish faoliyati.",
+    "examples": ["Mahalliy mahsulot uchun savdo tashviqoti o‘tkazildi."],
+    "category": "Biznes",
+    "usage": "Savdo"
+  },
+  {
+    "id": "alt-053",
+    "foreignWord": "intervyu",
+    "language": "Russian",
+    "alternatives": ["suhbat"],
+    "definition": "Savol-javob asosidagi suhbat.",
+    "examples": ["Ishga qabul suhbatidan so‘ng javob berildi."],
+    "category": "Biznes",
+    "usage": "Media va mehnat"
+  },
+  {
+    "id": "alt-054",
+    "foreignWord": "gruppa",
+    "language": "Russian",
+    "alternatives": ["guruh"],
+    "definition": "Bir maqsad atrofida birlashgan odamlar to‘plami.",
+    "examples": ["Guruh birgalikda mashq qildi."],
+    "category": "Ta’lim",
+    "usage": "Ta’lim"
+  },
+  {
+    "id": "alt-055",
+    "foreignWord": "stajirovka",
+    "language": "Russian",
+    "alternatives": ["malaka oshirish", "amaliyot"],
+    "definition": "Ish joyida tajriba orttirish davri.",
+    "examples": ["Yosh mutaxassislar amaliyot o‘tamoqda."],
+    "category": "Ta’lim",
+    "usage": "Kasbiy ta’lim"
+  },
+  {
+    "id": "alt-056",
+    "foreignWord": "byudjet",
+    "language": "Russian",
+    "alternatives": ["mablag‘", "moliyaviy reja"],
+    "definition": "Daromad va xarajatlarning rejalashtirilgan miqdori.",
+    "examples": ["Loyiha uchun moliyaviy reja tuzildi."],
+    "category": "Davlat boshqaruvi",
+    "usage": "Moliya"
+  }
+]
