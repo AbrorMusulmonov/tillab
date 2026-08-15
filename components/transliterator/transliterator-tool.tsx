@@ -31,7 +31,9 @@ export function TransliteratorTool() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: source, direction }),
       });
-      const data = (await response.json()) as { result?: string; error?: string };
+      const raw = await response.text();
+      if (!raw) throw new Error("Server javob bermadi. Qayta urinib ko‘ring.");
+      const data = JSON.parse(raw) as { result?: string; error?: string };
       if (!response.ok) throw new Error(data.error || "O‘girish amalga oshmadi.");
       setResult(data.result ?? "");
     } catch (err) {

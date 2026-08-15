@@ -105,6 +105,7 @@ export class GroqProvider implements LanguageAIProvider {
         "Content-Type": "application/json",
         Authorization: `Bearer ${this.apiKey}`,
       },
+      signal: AbortSignal.timeout(8000),
       body: JSON.stringify({
         model: this.model,
         temperature: 0.2,

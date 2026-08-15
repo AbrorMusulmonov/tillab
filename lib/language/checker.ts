@@ -1,4 +1,3 @@
-import { randomUUID } from "node:crypto";
 import checkerRules from "@/data/checker-rules.json";
 import type { TextAnalysis, TextIssue } from "@/types";
 import { createAIProvider } from "@/lib/ai/provider";
@@ -11,11 +10,15 @@ import {
   type RuleMatch,
 } from "./rule-engine";
 
+function newId(): string {
+  return crypto.randomUUID();
+}
+
 const dictionary = checkerRules as Record<string, CheckerRule>;
 
 function toIssues(matches: RuleMatch[]): TextIssue[] {
   return matches.map((match) => ({
-    id: randomUUID(),
+    id: newId(),
     type: match.rule.type,
     original: match.original,
     suggestion: match.suggestion,
@@ -45,7 +48,7 @@ function locateIssue(text: string, original: string, suggestion: string, explana
   const index = text.toLowerCase().indexOf(original.toLowerCase());
   if (index === -1) return null;
   return {
-    id: randomUUID(),
+    id: newId(),
     type,
     original: text.slice(index, index + original.length),
     suggestion,
@@ -66,7 +69,12 @@ export async function analyzeUzbekText(text: string): Promise<TextAnalysis> {
   const provider = createAIProvider();
   if (provider) {
     try {
-      const ai = await provider.analyzeUzbekText(text);
+      const ai = await Promise.race([
+        provider.analyzeUzbekText(text),
+        new Promise<never>((_, reject) => {
+          setTimeout(() => reject(new Error("AI timeout")), 8000);
+        }),
+      ]);
       const aiIssues = ai.issues
         .map((item) => locateIssue(text, item.original, item.suggestion, item.explanation, item.type))
         .filter((item): item is TextIssue => item !== null);

@@ -34,7 +34,9 @@ export function CheckerEditor() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text }),
       });
-      const data = (await response.json()) as TextAnalysis & { error?: string };
+      const raw = await response.text();
+      if (!raw) throw new Error("Server javob bermadi. Sahifani yangilab, qayta urinib ko‘ring.");
+      const data = JSON.parse(raw) as TextAnalysis & { error?: string };
       if (!response.ok) throw new Error(data.error || "Tekshiruv amalga oshmadi.");
       setResult(data);
     } catch (err) {

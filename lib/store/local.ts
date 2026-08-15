@@ -27,7 +27,7 @@ type PersistedStore = {
   };
 };
 
-const DATA_DIR = path.join(process.cwd(), "data");
+const DATA_DIR = process.env.VERCEL ? path.join("/tmp", "tillab-data") : path.join(process.cwd(), "data");
 const STORE_PATH = path.join(DATA_DIR, ".store.json");
 const UPLOAD_DIR = path.join(DATA_DIR, "uploads");
 
@@ -61,8 +61,12 @@ async function readStore(): Promise<PersistedStore> {
 }
 
 async function writeStore(store: PersistedStore): Promise<void> {
-  await mkdir(DATA_DIR, { recursive: true });
-  await writeFile(STORE_PATH, JSON.stringify(store, null, 2), "utf8");
+  try {
+    await mkdir(DATA_DIR, { recursive: true });
+    await writeFile(STORE_PATH, JSON.stringify(store, null, 2), "utf8");
+  } catch {
+    // Vercel serverless filesystem is ephemeral; never fail the request.
+  }
 }
 
 function publicUser(user: AppUser): AppUser {
