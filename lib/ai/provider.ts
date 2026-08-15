@@ -95,7 +95,7 @@ export class OpenAIProvider implements LanguageAIProvider {
 export class GroqProvider implements LanguageAIProvider {
   constructor(
     private readonly apiKey: string,
-    private readonly model = process.env.AI_MODEL || "llama-3.3-70b-versatile",
+    private readonly model = process.env.AI_MODEL || "llama-3.1-8b-instant",
   ) {}
 
   async analyzeUzbekText(text: string): Promise<AIAnalysisResult> {
@@ -105,7 +105,7 @@ export class GroqProvider implements LanguageAIProvider {
         "Content-Type": "application/json",
         Authorization: `Bearer ${this.apiKey}`,
       },
-      signal: AbortSignal.timeout(8000),
+      signal: AbortSignal.timeout(2500),
       body: JSON.stringify({
         model: this.model,
         temperature: 0.2,
