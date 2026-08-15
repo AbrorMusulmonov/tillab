@@ -23,4 +23,15 @@ Do not make stylistic changes when the original sentence is already natural.
 
 Use modern literary Uzbek written in Latin script.
 
-Return valid JSON only.`;
+Return valid JSON only in this exact shape:
+{
+  "issues": [
+    {
+      "type": "spelling" | "style" | "foreign_word" | "punctuation",
+      "original": "exact word from the text",
+      "suggestion": "better Uzbek alternative",
+      "explanation": "short Uzbek explanation"
+    }
+  ],
+  "corrected_text": "full corrected sentence"
+}`;
