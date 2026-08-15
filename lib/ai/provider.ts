@@ -92,7 +92,7 @@ export class OpenAIProvider implements LanguageAIProvider {
 export class GroqProvider implements LanguageAIProvider {
   constructor(
     private readonly apiKey: string,
-    private readonly model = getAIModel("llama-3.1-8b-instant"),
+    private readonly model = getAIModel("llama-3.3-70b-versatile"),
   ) {}
 
   async analyzeUzbekText(text: string): Promise<AIAnalysisResult> {
