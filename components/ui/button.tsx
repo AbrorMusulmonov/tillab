@@ -6,16 +6,16 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-[#0d9488]",
-        secondary: "bg-secondary text-white hover:bg-[#1d4ed8]",
-        outline: "border border-border bg-white hover:bg-muted",
+        default: "bg-primary text-primary-foreground hover:bg-[#0d6b64]",
+        secondary: "bg-foreground text-white hover:bg-[#2a2f2d]",
+        outline: "border border-border bg-white hover:bg-muted/70",
         ghost: "hover:bg-muted",
-        destructive: "bg-destructive text-white hover:bg-[#b91c1c]",
+        destructive: "bg-destructive text-white hover:bg-[#912018]",
       },
       size: {
         default: "h-10 px-4",
-        sm: "h-9 px-3",
-        lg: "h-12 px-6 text-base",
+        sm: "h-9 px-3 text-[13px]",
+        lg: "h-11 px-5",
         icon: "h-10 w-10",
       },
     },

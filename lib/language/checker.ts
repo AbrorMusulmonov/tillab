@@ -1,7 +1,9 @@
 import checkerRules from "@/data/checker-rules.json";
 import type { TextAnalysis, TextIssue } from "@/types";
 import { createAIProvider } from "@/lib/ai/provider";
+import { cyrillicToLatin } from "@/lib/transliteration";
 import { countWords } from "@/lib/utils";
+import { isMostlyCyrillic } from "./script";
 import {
   applyCorrections,
   applyRuleEngine,
@@ -59,9 +61,11 @@ function locateIssue(text: string, original: string, suggestion: string, explana
 }
 
 export async function analyzeUzbekText(text: string): Promise<TextAnalysis> {
-  const ruleMatches = [...applyRuleEngine(text, dictionary), ...findPunctuationIssues(text)];
+  const convertedFromCyrillic = isMostlyCyrillic(text);
+  const source = convertedFromCyrillic ? cyrillicToLatin(text) : text;
+  const ruleMatches = [...applyRuleEngine(source, dictionary), ...findPunctuationIssues(source)];
   const ruleIssues = toIssues(ruleMatches);
-  let correctedText = applyCorrections(text, ruleMatches);
+  let correctedText = applyCorrections(source, ruleMatches);
   let issues = ruleIssues;
   let aiAvailable = true;
   let aiMessage: string | undefined;
@@ -70,13 +74,13 @@ export async function analyzeUzbekText(text: string): Promise<TextAnalysis> {
   if (provider) {
     try {
       const ai = await Promise.race([
-        provider.analyzeUzbekText(text),
+        provider.analyzeUzbekText(source),
         new Promise<never>((_, reject) => {
           setTimeout(() => reject(new Error("AI timeout")), 8000);
         }),
       ]);
       const aiIssues = ai.issues.map((item) => {
-        const located = locateIssue(text, item.original, item.suggestion, item.explanation, item.type);
+        const located = locateIssue(source, item.original, item.suggestion, item.explanation, item.type);
         return (
           located ?? {
             id: newId(),
@@ -114,14 +118,15 @@ export async function analyzeUzbekText(text: string): Promise<TextAnalysis> {
   }
 
   return {
-    originalText: text,
+    originalText: source,
     correctedText,
     issues,
     statistics: {
-      words: countWords(text),
-      characters: text.length,
+      words: countWords(source),
+      characters: source.length,
       issues: issues.length,
     },
+    convertedFromCyrillic,
     aiAvailable,
     aiMessage,
   };

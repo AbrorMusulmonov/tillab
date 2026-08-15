@@ -8,6 +8,7 @@ import type {
   AppUser,
   DatasetStats,
   TextContribution,
+  TextIssue,
 } from "@/types";
 import { countWords } from "@/lib/utils";
 import type { NewUser, StoreAdapter } from "./types";
@@ -21,6 +22,7 @@ type PersistedStore = {
     textChecks: number;
     transliterations: number;
   };
+  correctionCounts: Record<string, { original: string; suggestion: string; count: number }>;
 };
 
 const DATA_DIR = process.env.VERCEL ? path.join("/tmp", "tillab-data") : path.join(process.cwd(), "data");
@@ -32,6 +34,7 @@ const emptyStore = (): PersistedStore => ({
   alternativeSuggestions: [],
   approvedAlternatives: [],
   analytics: { textChecks: 0, transliterations: 0 },
+  correctionCounts: {},
 });
 
 let queue: Promise<unknown> = Promise.resolve();
@@ -48,7 +51,13 @@ function enqueue<T>(task: () => Promise<T>): Promise<T> {
 async function readStore(): Promise<PersistedStore> {
   try {
     const raw = await readFile(STORE_PATH, "utf8");
-    return { ...emptyStore(), ...JSON.parse(raw) } as PersistedStore;
+    const parsed = JSON.parse(raw) as Partial<PersistedStore>;
+    return {
+      ...emptyStore(),
+      ...parsed,
+      analytics: { ...emptyStore().analytics, ...parsed.analytics },
+      correctionCounts: parsed.correctionCounts ?? {},
+    };
   } catch {
     return emptyStore();
   }
@@ -231,6 +240,30 @@ export const localStore: StoreAdapter = {
     });
   },
 
+  async recordCorrections(issues: TextIssue[]) {
+    const pairs = issues.filter(
+      (issue) => issue.original.trim() && issue.suggestion.trim() && issue.original !== issue.suggestion,
+    );
+    if (pairs.length === 0) return;
+    return enqueue(async () => {
+      const store = await readStore();
+      for (const issue of pairs) {
+        const key = `${issue.original.trim().toLowerCase()}|${issue.suggestion.trim().toLowerCase()}`;
+        const existing = store.correctionCounts[key];
+        if (existing) {
+          existing.count += 1;
+        } else {
+          store.correctionCounts[key] = {
+            original: issue.original.trim(),
+            suggestion: issue.suggestion.trim(),
+            count: 1,
+          };
+        }
+      }
+      await writeStore(store);
+    });
+  },
+
   async getStats(): Promise<DatasetStats> {
     const store = await readStore();
     const approvedText = store.textContributions.filter((item) => item.status === "approved");
@@ -252,6 +285,9 @@ export const localStore: StoreAdapter = {
       approvedContributions: approvedText.length,
       totalUsers: store.users.length,
       categories,
+      topCorrections: Object.values(store.correctionCounts)
+        .sort((a, b) => b.count - a.count)
+        .slice(0, 12),
     };
   },
 };

@@ -35,13 +35,20 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
 
   return (
     <form
-      className="mx-auto max-w-md space-y-4 px-4 py-12"
+      className="mx-auto max-w-md space-y-5 px-5 py-16 sm:px-6"
       onSubmit={(event) => {
         event.preventDefault();
         void submit();
       }}
     >
-      <h1 className="text-3xl font-semibold">{mode === "login" ? "Kirish" : "Ro‘yxatdan o‘tish"}</h1>
+      <div>
+        <h1 className="text-[1.75rem] font-semibold tracking-tight">
+          {mode === "login" ? "Kirish" : "Ro‘yxatdan o‘tish"}
+        </h1>
+        <p className="mt-2 text-sm text-muted-foreground">
+          {mode === "login" ? "Hisobingizga kiring." : "TilLab’da ishlash uchun hisob oching."}
+        </p>
+      </div>
       {mode === "register" ? (
         <div>
           <Label htmlFor="name">Ism</Label>
@@ -70,17 +77,23 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
         />
       </div>
       {error ? <p className="text-sm text-destructive">{error}</p> : null}
-      <Button type="submit" disabled={loading}>
+      <Button type="submit" disabled={loading} className="w-full">
         {loading ? "Kutilmoqda..." : mode === "login" ? "Kirish" : "Ro‘yxatdan o‘tish"}
       </Button>
       <p className="text-sm text-muted-foreground">
         {mode === "login" ? (
           <>
-            Hisobingiz yo‘qmi? <Link href="/register">Ro‘yxatdan o‘ting</Link>
+            Hisobingiz yo‘qmi?{" "}
+            <Link href="/register" className="text-foreground underline-offset-4 hover:underline">
+              Ro‘yxatdan o‘ting
+            </Link>
           </>
         ) : (
           <>
-            Allaqachon hisobingiz bormi? <Link href="/login">Kiring</Link>
+            Allaqachon hisobingiz bormi?{" "}
+            <Link href="/login" className="text-foreground underline-offset-4 hover:underline">
+              Kiring
+            </Link>
           </>
         )}
       </p>

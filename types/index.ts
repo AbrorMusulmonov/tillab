@@ -23,8 +23,15 @@ export type TextAnalysis = {
     characters: number;
     issues: number;
   };
+  convertedFromCyrillic?: boolean;
   aiAvailable?: boolean;
   aiMessage?: string;
+};
+
+export type CorrectionPair = {
+  original: string;
+  suggestion: string;
+  count: number;
 };
 
 export type AlternativeWord = {
@@ -88,6 +95,7 @@ export type DatasetStats = {
   approvedContributions: number;
   totalUsers: number;
   categories: Record<string, number>;
+  topCorrections: CorrectionPair[];
 };
 
 export type TransliterateDirection = "latin-to-cyrillic" | "cyrillic-to-latin";

@@ -1,6 +1,7 @@
 import { NextRequest } from "next/server";
 import { analyzeUzbekText } from "@/lib/language/checker";
 import { clientIp, rateLimit } from "@/lib/rate-limit";
+import { getStore } from "@/lib/store";
 import { checkTextSchema } from "@/lib/validations";
 
 export const runtime = "nodejs";
@@ -18,6 +19,11 @@ export async function POST(request: NextRequest) {
     }
 
     const result = await analyzeUzbekText(parsed.data.text);
+    try {
+      await Promise.all([getStore().incrementCheckCount(), getStore().recordCorrections(result.issues)]);
+    } catch {
+      // Stats must not block the check result.
+    }
     return Response.json(result);
   } catch {
     return Response.json({ error: "Tekshiruv amalga oshmadi. Qayta urinib ko‘ring." }, { status: 500 });

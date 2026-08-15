@@ -1,11 +1,13 @@
 import { redirect } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { PageShell } from "@/components/layout/page-shell";
 import { getSession } from "@/lib/auth/session";
 import { getStore } from "@/lib/store";
 import { STATUS_LABELS } from "@/lib/constants";
 import { formatDate } from "@/lib/utils";
 import { LogoutButton } from "@/components/layout/logout-button";
+import Link from "next/link";
 
 export default async function ProfilePage() {
   const user = await getSession();
@@ -21,31 +23,25 @@ export default async function ProfilePage() {
   ].sort((a, b) => +new Date(b.date) - +new Date(a.date));
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-10">
-      <div className="flex flex-wrap items-start justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-semibold">{user.name}</h1>
-          <p className="text-muted-foreground">{user.email}</p>
-        </div>
-        <div className="flex gap-2">
-          {user.role === "admin" ? (
-            <a href="/admin" className="text-sm font-medium text-primary">
-              Admin panel
-            </a>
-          ) : null}
-          <LogoutButton />
-        </div>
+    <PageShell title={user.name} description={user.email} wide>
+      <div className="-mt-6 mb-10 flex flex-wrap gap-2">
+        {user.role === "admin" ? (
+          <Link href="/admin" className="text-sm font-medium text-primary">
+            Admin panel
+          </Link>
+        ) : null}
+        <LogoutButton />
       </div>
-      <div className="mt-8 grid gap-4 sm:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-3">
         {[
-          { label: "Contributions", value: history.length },
-          { label: "Text samples", value: texts.length },
-          { label: "Alternative suggestions", value: suggestions.length },
+          { label: "Hissalar", value: history.length },
+          { label: "Matn namunasi", value: texts.length },
+          { label: "Muqobil takliflar", value: suggestions.length },
         ].map((item) => (
           <Card key={item.label}>
             <CardContent className="pt-6">
-              <p className="text-2xl font-semibold">{item.value}</p>
-              <p className="text-sm text-muted-foreground">{item.label}</p>
+              <p className="text-2xl font-semibold tracking-tight">{item.value}</p>
+              <p className="mt-1 text-sm text-muted-foreground">{item.label}</p>
             </CardContent>
           </Card>
         ))}
@@ -54,9 +50,9 @@ export default async function ProfilePage() {
         <table className="w-full min-w-[480px] text-left text-sm">
           <thead>
             <tr className="border-b border-border text-muted-foreground">
-              <th className="py-3">Type</th>
-              <th>Date</th>
-              <th>Status</th>
+              <th className="py-3 font-medium">Tur</th>
+              <th className="font-medium">Sana</th>
+              <th className="font-medium">Holat</th>
             </tr>
           </thead>
           <tbody>
@@ -75,6 +71,6 @@ export default async function ProfilePage() {
         </table>
         {history.length === 0 ? <p className="mt-4 text-muted-foreground">Hali hissa qo‘shilmagan.</p> : null}
       </div>
-    </div>
+    </PageShell>
   );
 }

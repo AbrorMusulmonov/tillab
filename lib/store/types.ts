@@ -5,6 +5,7 @@ import type {
   ContributionStatus,
   DatasetStats,
   TextContribution,
+  TextIssue,
 } from "@/types";
 
 export type NewUser = {
@@ -29,5 +30,6 @@ export type StoreAdapter = {
   listApprovedAlternatives(): Promise<AlternativeWord[]>;
   incrementCheckCount(userId?: string): Promise<void>;
   incrementTransliterationCount(): Promise<void>;
+  recordCorrections(issues: TextIssue[]): Promise<void>;
   getStats(): Promise<DatasetStats>;
 };

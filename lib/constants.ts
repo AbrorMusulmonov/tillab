@@ -68,3 +68,26 @@ export const ISSUE_TYPE_LABELS: Record<string, string> = {
   foreign_word: "Begona so‘z",
   punctuation: "Tinish belgilari",
 };
+
+export const CHECKER_SAMPLES = [
+  {
+    id: "foreign",
+    label: "Begona so‘zlar",
+    text: "Bu proyekt studentlarga yangi opportunity beradi.",
+  },
+  {
+    id: "formal",
+    label: "Rasmiy",
+    text: "Kompaniya administratsiyasi ekspertlar bilan konsultatsiya o‘tkazadi va dokument tayyorlaydi.",
+  },
+  {
+    id: "daily",
+    label: "Kundalik",
+    text: "Mitingda deadline yaqinligi haqida gaplashdik, online servis ham aktiv ishlamayapti.",
+  },
+  {
+    id: "cyrillic",
+    label: "Kirill",
+    text: "Бу проект студентларга янги opportunity беради.",
+  },
+] as const;

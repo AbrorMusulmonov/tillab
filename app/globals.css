@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  --background: #f6f7f6;
+  --foreground: #121417;
   --card: #ffffff;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --border: #e2e8f0;
+  --muted: #eef1ef;
+  --muted-foreground: #66716c;
+  --border: #e4e8e6;
   --primary: #0f766e;
   --primary-foreground: #ffffff;
-  --secondary: #2563eb;
-  --accent: #16a34a;
-  --destructive: #dc2626;
+  --secondary: #134e4a;
+  --accent: #0f766e;
+  --destructive: #b42318;
   --ring: #0f766e;
 }
 
@@ -50,4 +50,9 @@ textarea:focus-visible,
 select:focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
+}
+
+::selection {
+  background: #ccfbf1;
+  color: #134e4a;
 }

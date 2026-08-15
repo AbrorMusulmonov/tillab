@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
+import { PageShell } from "@/components/layout/page-shell";
 import { getSession } from "@/lib/auth/session";
 import { getStore } from "@/lib/store";
 import { formatNumber } from "@/lib/utils";
@@ -9,9 +10,8 @@ export default async function AdminStatisticsPage() {
   if (!user || user.role !== "admin") redirect("/");
   const stats = await getStore().getStats();
   return (
-    <div className="mx-auto max-w-5xl px-4 py-10">
-      <h1 className="text-3xl font-semibold">Statistika</h1>
-      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+    <PageShell title="Statistika">
+      <div className="grid gap-4 sm:grid-cols-2">
         {[
           ["Tekshiruvlar", stats.textChecks],
           ["Transliteratsiyalar", stats.transliterations],
@@ -21,12 +21,12 @@ export default async function AdminStatisticsPage() {
         ].map(([label, value]) => (
           <Card key={String(label)}>
             <CardContent className="pt-6">
-              <p className="text-2xl font-semibold">{formatNumber(Number(value))}</p>
-              <p className="text-sm text-muted-foreground">{label}</p>
+              <p className="text-2xl font-semibold tracking-tight">{formatNumber(Number(value))}</p>
+              <p className="mt-1 text-sm text-muted-foreground">{label}</p>
             </CardContent>
           </Card>
         ))}
       </div>
-    </div>
+    </PageShell>
   );
 }

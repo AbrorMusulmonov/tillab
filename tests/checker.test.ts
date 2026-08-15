@@ -12,4 +12,14 @@ describe("rule engine checker", () => {
     expect(result.correctedText.toLowerCase()).toContain("talaba");
     expect(result.correctedText.toLowerCase()).toContain("imkoniyat");
   });
+
+  it("converts Cyrillic text to Latin before checking", async () => {
+    const result = await analyzeUzbekText("Бу проект студентларга янги opportunity беради.");
+    expect(result.convertedFromCyrillic).toBe(true);
+    expect(result.originalText.toLowerCase()).toMatch(/proekt|proyekt|loyiha/);
+    const originals = result.issues.map((issue) => issue.original.toLowerCase());
+    expect(originals.some((item) => item.includes("proyekt") || item.includes("student") || item.includes("opportunity"))).toBe(
+      true,
+    );
+  });
 });
