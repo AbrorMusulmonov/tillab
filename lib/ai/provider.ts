@@ -1,3 +1,4 @@
+import { getAIApiKey, getAIModel, getAIProviderName } from "./env";
 import { parseAnalysis, type AIAnalysisResult } from "./schema";
 import { AI_SYSTEM_PROMPT, type LanguageAIProvider } from "./types";
 
@@ -91,7 +92,7 @@ export class OpenAIProvider implements LanguageAIProvider {
 export class GroqProvider implements LanguageAIProvider {
   constructor(
     private readonly apiKey: string,
-    private readonly model = process.env.AI_MODEL || "llama-3.3-70b-versatile",
+    private readonly model = getAIModel("llama-3.1-8b-instant"),
   ) {}
 
   async analyzeUzbekText(text: string): Promise<AIAnalysisResult> {
@@ -127,9 +128,9 @@ export class GroqProvider implements LanguageAIProvider {
 }
 
 export function createAIProvider(): LanguageAIProvider | null {
-  const apiKey = process.env.AI_API_KEY?.trim();
+  const apiKey = getAIApiKey();
   if (!apiKey) return null;
-  const provider = (process.env.AI_PROVIDER || "").toLowerCase();
+  const provider = getAIProviderName();
   if (apiKey.startsWith("gsk_") || provider === "groq") return new GroqProvider(apiKey);
   if (provider === "openai" || apiKey.startsWith("sk-")) return new OpenAIProvider(apiKey);
   if (provider === "gemini") return new GeminiProvider(apiKey);

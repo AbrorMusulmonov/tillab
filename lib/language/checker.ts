@@ -75,20 +75,40 @@ export async function analyzeUzbekText(text: string): Promise<TextAnalysis> {
           setTimeout(() => reject(new Error("AI timeout")), 8000);
         }),
       ]);
-      const aiIssues = ai.issues
-        .map((item) => locateIssue(text, item.original, item.suggestion, item.explanation, item.type))
-        .filter((item): item is TextIssue => item !== null);
+      const aiIssues = ai.issues.map((item) => {
+        const located = locateIssue(text, item.original, item.suggestion, item.explanation, item.type);
+        return (
+          located ?? {
+            id: newId(),
+            type: item.type,
+            original: item.original,
+            suggestion: item.suggestion,
+            explanation: item.explanation,
+            start: 0,
+            end: 0,
+          }
+        );
+      });
       issues = mergeIssues(ruleIssues, aiIssues);
       if (ai.corrected_text.trim()) {
         correctedText = ai.corrected_text.trim();
       }
-    } catch {
+    } catch (error) {
       aiAvailable = false;
-      aiMessage =
-        "Sun’iy intellekt tahlili vaqtincha mavjud emas. Asosiy imlo tekshiruvi davom ettirildi.";
+      const message = error instanceof Error ? error.message : "";
+      if (message.includes("401") || message.includes("403")) {
+        aiMessage = "Groq kaliti rad etildi. Vercel’da AI_API_KEY qiymatini tekshiring va Redeploy qiling.";
+      } else if (/timeout|AbortError/i.test(message)) {
+        aiMessage = "Groq javob berishga ulgurmadi. Qayta urinib ko‘ring.";
+      } else {
+        aiMessage =
+          "Sun’iy intellekt tahlili vaqtincha mavjud emas. Asosiy imlo tekshiruvi davom ettirildi.";
+      }
     }
   } else {
     aiAvailable = false;
+    aiMessage =
+      "AI kaliti serverda topilmadi. Vercel → Settings → Environment Variables: AI_API_KEY ni Production uchun qo‘ying, keyin Redeploy qiling.";
   }
 
   return {
