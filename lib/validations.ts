@@ -5,8 +5,11 @@ export const checkTextSchema = z.object({
 });
 
 export const transliterateSchema = z.object({
-  text: z.string().min(0).max(50_000),
-  direction: z.enum(["latin-to-cyrillic", "cyrillic-to-latin"]),
+  text: z.string().min(0).max(50_000).optional(),
+  direction: z.enum(["latin-to-cyrillic", "cyrillic-to-latin"]).optional(),
+  from: z.enum(["auto", "cyrillic", "old-latin", "new-latin"]).optional(),
+  to: z.enum(["cyrillic", "old-latin", "new-latin"]).optional(),
+  countOnly: z.boolean().optional(),
 });
 
 export const alternativesQuerySchema = z.object({

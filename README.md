@@ -1,106 +1,92 @@
-# TilLab
+<p align="center">
+  <img src="public/logo.png" alt="TilLab" width="88" />
+</p>
 
-**O‘zbek tilini raqamli kelajak uchun boyitamiz.**
+<h1 align="center">TilLab</h1>
 
-TilLab — o‘zbek tilidagi matn va nutq ma’lumotlarini yaxshilash, tizimlashtirish va ko‘paytirishga xizmat qiluvchi raqamli til infratuzilmasi.
+<p align="center">
+  <b>O‘zbek tili uchun raqamli laboratoriya</b><br />
+  Matnni tekshiring, yozuvni o‘giring, muqobil toping — markazda o‘zbek tili turadi.
+</p>
 
-Bu mahsulot oddiygina “AI text corrector” emas. Sun’iy intellekt vosita; markazda o‘zbek tili turadi.
+<p align="center">
+  <a href="https://tillabuz.vercel.app">tillabuz.vercel.app</a>
+</p>
 
-## Problem
+---
 
-Raqamli tizimlarning ko‘pchiligi o‘zbek tilida yetarlicha sifatli ishlamaydi: imlo yordami zaif, lotin-kirill o‘girish noaniq, begona so‘zlar uchun tabiiy muqobillar tarqoq, nutq va matn uchun ochiq sifatli ma’lumotlar esa kam.
+TilLab — o‘zbek tilidagi matn ma’lumotlarini yaxshilash, tizimlashtirish va ko‘paytirishga xizmat qiluvchi til infratuzilmasi. Bu oddiy “AI text corrector” emas: sun’iy intellekt vosita, mahsulotning markazida o‘zbek tili turadi.
 
-## Solution
+## Muammo
 
-TilLab bitta platformada:
+Raqamli tizimlarning ko‘pchiligi o‘zbek tilida yetarlicha sifatli ishlamaydi: imlo yordami zaif, lotin–kirill o‘girish noaniq, begona so‘zlar uchun tabiiy muqobillar tarqoq, ochiq sifatli til ma’lumotlari esa kam. 2026-yilgi yangi lotin alifbosi (ö, ğ, ş, ç) esa millionlab hujjatni yangilashni talab qiladi.
 
-- o‘zbekcha matnni tekshiradi va tabiiyroq variantlar taklif qiladi;
-- lotin va kirill yozuvlarini kontekstga qarab o‘giradi;
-- begona so‘zlar uchun o‘zbekcha muqobillarni qidirish imkonini beradi;
-- rozilik asosida matn namunalarini yig‘adi;
-- faqat tasdiqlangan hissalar asosida haqiqiy statistikani ko‘rsatadi.
+## Imkoniyatlar
 
-## Features
+| Bo‘lim | Nima qiladi |
+| --- | --- |
+| **Tekshiruvchi** | Imlo, uslub va begona so‘zlar tahlili; tavsiyani bir klikda qo‘llash; `.txt`, `.pdf`, `.docx` yuklash; kirill matn avval lotinga o‘giriladi; `Ctrl + Enter` |
+| **Yozuv o‘girish** | Kirill ⇄ amaldagi lotin ⇄ yangi lotin (ö, ğ, ş, ç); alifboni avtomatik aniqlash; noaniq joylarni alohida ko‘rsatish; Word (`.docx`) faylni formatlashni saqlagan holda o‘girish |
+| **Muqobillar** | Ortiqcha ishlatiladigan begona so‘zlar uchun adabiy o‘zbekcha muqobillar, jamoa takliflari |
+| **Ma’lumotlar banki** | Rozilik asosida matn namunalari; faqat tasdiqlangan hissalar statistikada ko‘rinadi |
+| **Admin** | Hissalarni tasdiqlash yoki rad etish |
 
-- **Tekshiruvchi** — qoida asosidagi tahlil, ixtiyoriy Gemini / OpenAI / Groq qatlami
-- **Transliterator** — `o‘`, `g‘`, `sh`, `ch`, `ng`, `ya`, `yu`, `yo` uchun kontekstli qoidalar
-- **Muqobillar** — 50+ so‘z, turkum filtri, jamoa takliflari
-- **Hissa** — matn qo‘shish, PII filtri, rozilik
-- **Ma’lumotlar banki** — tasdiqlangan namunalar statistikasi, xom dataset ochiq emas
-- **Admin** — pending hissalarni tasdiqlash yoki rad etish
+Yozuv o‘girish to‘liq brauzerda ishlaydi — matn serverga yuborilmaydi. Bosh sahifadagi jonli o‘girish oynasida buni darhol sinab ko‘rish mumkin.
 
-## Screenshots
-
-Ishga tushirgach asosiy oqim:
-
-1. Bosh sahifa
-2. `Bu proyekt studentlarga yangi opportunity beradi.` → `Bu loyiha talabalarga yangi imkoniyat beradi.`
-3. Lotin → Kirill
-4. `registratsiya` → `ro‘yxatdan o‘tish`
-5. Dataset statistikasi
-
-## Architecture
+## Arxitektura
 
 ```text
 Browser (Next.js App Router)
+  → jonli o‘girish: alifbo engine (client-side, MIT)
   → Route Handlers (/api/*)
-    → Rule engine / transliteration / PII
-    → Optional LanguageAIProvider (Gemini | OpenAI | Groq)
-    → Local JSON store (MVP) or Supabase PostgreSQL + Storage
+    → qoida mexanizmi / PII filtri
+    → ixtiyoriy LanguageAIProvider (Groq | Gemini | OpenAI)
+    → mahalliy JSON store (MVP) yoki Supabase PostgreSQL
 ```
 
-Hissalar avtomatik ochiq datasetga chiqmaydi. Avval admin tekshiruvidan o‘tadi.
+Hissalar avtomatik ochiq datasetga chiqmaydi — avval admin tekshiruvidan o‘tadi. Statistika hech qachon soxta emas: ma’lumot bo‘lmasa `0` ko‘rinadi.
 
-## Tech Stack
+## Texnologiyalar
 
 - Next.js 16 (App Router) + TypeScript strict
-- Tailwind CSS
-- Zod
-- Vitest
-- Supabase (ixtiyoriy: Auth, PostgreSQL, Storage)
-- Gemini / Groq / OpenAI (ixtiyoriy)
+- Tailwind CSS 4
+- [alifbo](https://github.com/azakapro/alifbo) — yozuv o‘girish mexanizmi (MIT)
+- Zod, Vitest
+- Groq / Gemini / OpenAI (ixtiyoriy)
+- Supabase (ixtiyoriy)
 
-## Installation
+## Ishga tushirish
 
 ```bash
-cd tillab
 npm install
 cp .env.example .env.local
 npm test
 npm run dev
 ```
 
-Brauzerda [http://localhost:3000](http://localhost:3000) ni oching.
+Brauzerda [http://localhost:3000](http://localhost:3000) ni oching. Birinchi ro‘yxatdan o‘tgan foydalanuvchi admin bo‘ladi (yoki `ADMIN_EMAIL` mos kelsa).
 
-Birinchi ro‘yxatdan o‘tgan foydalanuvchi admin bo‘ladi (yoki `ADMIN_EMAIL` mos kelsa).
+## Muhit o‘zgaruvchilari
 
-## Environment Variables
-
-| Key | Description |
+| Kalit | Tavsif |
 | --- | --- |
 | `SESSION_SECRET` | Cookie sessiyasi uchun maxfiy kalit |
 | `ADMIN_EMAIL` | Shu email bilan ro‘yxatdan o‘tgan foydalanuvchi admin bo‘ladi |
-| `AI_PROVIDER` | `gemini`, `openai` yoki `groq` |
+| `AI_PROVIDER` | `groq`, `gemini` yoki `openai` |
 | `AI_API_KEY` | Tanlangan provider kaliti |
 | `AI_MODEL` | Ixtiyoriy model nomi |
 | `NEXT_PUBLIC_SUPABASE_URL` | Supabase loyiha URL |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anon kalit |
 
-AI kaliti bo‘lmasa ham qoida asosidagi tekshiruv ishlaydi.
+AI kaliti bo‘lmasa ham qoida asosidagi tekshiruv to‘liq ishlaydi.
 
-Supabase sozlanmasa, MVP mahalliy `data/.store.json` va `data/uploads/` orqali ishlaydi. Statistika hech qachon soxta emas: ma’lumot bo‘lmasa `0` ko‘rinadi.
+## Yo‘l xaritasi
 
-## Roadmap
+- **Phase 2:** Chrome kengaytmasi, Telegram bot, o‘zbek speech-to-text
+- **Phase 3:** ochiq o‘zbek tili dataseti, dasturchilar uchun API
+- **Phase 4:** o‘zbekcha benchmark va LLM evaluation
+- **Phase 5:** universitet, media va AI kompaniyalari bilan hamkorlik
 
-- **Phase 2:** Uzbek speech-to-text, dialekt aniqlash, TTS
-- **Phase 3:** ochiq o‘zbek tili dataseti, dasturchilar API
-- **Phase 4:** Uzbek benchmark va LLM evaluation
-- **Phase 5:** universitet, media, davlat va AI kompaniyalari bilan hamkorlik
+## Litsenziya va minnatdorchilik
 
-## Impact
-
-Har bir tasdiqlangan matn va ovoz namunasi kelajakdagi o‘zbekcha nutq va til texnologiyalari uchun sifatli ma’lumot yaratadi.
-
-## Author
-
-TilLab MVP o‘zbek va boshqa kam resursli turkiy tillar uchun raqamli resurslar yetishmasligi muammosidan kelib chiqib yaratilgan.
+Yozuv o‘girish mexanizmi ochiq kodli [alifbo](https://github.com/azakapro/alifbo) kutubxonasiga asoslangan (MIT). Qarang: `lib/transliteration/ALIFBO-NOTICE.txt`.

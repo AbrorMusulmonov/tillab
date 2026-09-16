@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
+import { LogoMark } from "@/components/layout/logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -35,14 +36,15 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
 
   return (
     <form
-      className="mx-auto max-w-md space-y-5 px-5 py-16 sm:px-6"
+      className="mx-auto my-16 max-w-md space-y-5 rounded-[22px] border border-white/80 bg-white/80 px-5 py-12 shadow-[0_24px_60px_-36px_rgba(15,23,42,0.22)] backdrop-blur-sm sm:px-8"
       onSubmit={(event) => {
         event.preventDefault();
         void submit();
       }}
     >
       <div>
-        <h1 className="text-[1.75rem] font-semibold tracking-tight">
+        <LogoMark size={40} alt="TilLab" className="mb-5" />
+        <h1 className="text-[1.75rem] font-semibold tracking-[-0.03em]">
           {mode === "login" ? "Kirish" : "Ro‘yxatdan o‘tish"}
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">

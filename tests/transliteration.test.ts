@@ -55,3 +55,23 @@ describe("transliterate", () => {
     }
   });
 });
+
+describe("2026 latin conversion", () => {
+  it("maps current Latin digraphs to the new alphabet", async () => {
+    const { convertText } = await import("../lib/transliteration/convert");
+    const result = convertText(
+      "Oʻzbekiston shahar choyxona",
+      "old-latin",
+      "new-latin",
+    );
+    expect(result.text.toLowerCase()).toContain("özbekiston");
+    expect(result.text.toLowerCase()).toContain("şahar");
+    expect(result.text.toLowerCase()).toContain("çoyxona");
+  });
+
+  it("keeps the sʼh morpheme boundary", async () => {
+    const { convertText } = await import("../lib/transliteration/convert");
+    const result = convertText("Isʼhoq", "old-latin", "new-latin");
+    expect(result.text).not.toMatch(/Işoq/i);
+  });
+});

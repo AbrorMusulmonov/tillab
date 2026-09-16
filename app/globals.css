@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f6f7f6;
-  --foreground: #121417;
+  --background: #f4f6f5;
+  --foreground: #0c1222;
   --card: #ffffff;
-  --muted: #eef1ef;
-  --muted-foreground: #66716c;
-  --border: #e4e8e6;
+  --muted: #eef2f0;
+  --muted-foreground: #5b6570;
+  --border: #e2e8e4;
   --primary: #0f766e;
   --primary-foreground: #ffffff;
   --secondary: #134e4a;
@@ -43,6 +43,13 @@ body {
   font-family: var(--font-sans), Inter, system-ui, sans-serif;
 }
 
+body {
+  background-image:
+    radial-gradient(1200px 500px at 50% -180px, rgba(15, 118, 110, 0.11), transparent 60%),
+    radial-gradient(700px 280px at 90% 10%, rgba(15, 118, 110, 0.05), transparent 50%);
+  background-attachment: fixed;
+}
+
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -55,4 +62,12 @@ select:focus-visible {
 ::selection {
   background: #ccfbf1;
   color: #134e4a;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, #000 20%, transparent 75%);
 }

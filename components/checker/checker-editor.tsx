@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Upload } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -26,6 +26,17 @@ export function CheckerEditor() {
   const [error, setError] = useState("");
   const [note, setNote] = useState("");
   const fileRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    function onKey(event: KeyboardEvent) {
+      if ((event.metaKey || event.ctrlKey) && event.key === "Enter") {
+        event.preventDefault();
+        if (!loading && text.trim()) void check();
+      }
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [loading, text]);
 
   const grouped = useMemo(() => {
     const groups: Record<string, TextIssue[]> = { spelling: [], style: [], foreign_word: [], punctuation: [] };
@@ -111,13 +122,14 @@ export function CheckerEditor() {
               setError("");
               setNote("");
             }}
-            className="rounded-full border border-border bg-white px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
+            className="rounded-full border border-border/80 bg-white/80 px-3 py-1.5 text-xs text-muted-foreground shadow-sm transition-colors hover:border-primary/35 hover:text-foreground"
           >
             {sample.label}
           </button>
         ))}
       </div>
 
+      <div className="space-y-4 rounded-[22px] border border-white/80 bg-white/80 p-4 shadow-[0_24px_60px_-36px_rgba(15,23,42,0.22)] backdrop-blur-sm sm:p-6">
       <Textarea
         value={text}
         onChange={(event) => setText(event.target.value)}
@@ -143,11 +155,12 @@ export function CheckerEditor() {
             event.target.value = "";
           }}
         />
-        <p className="text-xs text-muted-foreground">.txt, .pdf, .docx</p>
+        <p className="text-xs text-muted-foreground">Ctrl + Enter · .txt, .pdf, .docx</p>
       </div>
 
       {note ? <p className="text-sm text-muted-foreground">{note}</p> : null}
       {error ? <p className="text-sm text-destructive">{error}</p> : null}
+      </div>
 
       {loading ? (
         <div className="grid gap-4 md:grid-cols-3">

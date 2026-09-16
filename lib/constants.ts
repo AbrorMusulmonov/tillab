@@ -4,8 +4,9 @@ export const SITE_DESCRIPTION =
   "O‘zbekcha matnlarni tekshiring, lotin va kirill yozuvlarini o‘giring va o‘zbek tilining raqamli rivojiga hissa qo‘shing.";
 
 export const NAV_LINKS = [
+  { href: "/", label: "Bosh sahifa" },
   { href: "/checker", label: "Tekshiruvchi" },
-  { href: "/transliterator", label: "Transliterator" },
+  { href: "/transliterator", label: "Yozuv o‘girish" },
   { href: "/alternatives", label: "Muqobillar" },
   { href: "/dataset", label: "Ma’lumotlar banki" },
   { href: "/about", label: "Biz haqimizda" },

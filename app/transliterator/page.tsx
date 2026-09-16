@@ -5,8 +5,8 @@ export default function TransliteratorPage() {
   return (
     <PageShell
       wide
-      title="Lotin ↔ Kirill"
-      description="O‘zbek lotin va kirill yozuvlarini kontekstga qarab, o‘, g‘, sh, ch kabi harflarni to‘g‘ri hisobga olib o‘giradi."
+      title="Yozuvni o‘girish"
+      description="Kirill, amaldagi lotin va 2026-yilgi yangi lotin alifbolari o‘rtasida. Noaniq joylar alohida ko‘rsatiladi. Word hujjatdagi formatlash saqlanadi."
     >
       <TransliteratorTool />
     </PageShell>

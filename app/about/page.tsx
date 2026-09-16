@@ -17,6 +17,14 @@ export default function AboutPage() {
           Sun’iy intellekt bu yerda vosita. Mahsulotning markazida o‘zbek tili turadi. Platforma jazolovchi emas,
           yordam beruvchi: “Siz noto‘g‘ri yozdingiz” o‘rniga “Quyidagi variant tabiiyroq bo‘lishi mumkin” deydi.
         </p>
+        <p>
+          Yozuv o‘girish mexanizmi ochiq kodli{" "}
+          <a href="https://github.com/azakapro/alifbo" className="text-foreground underline underline-offset-2">
+            alifbo
+          </a>{" "}
+          kutubxonasiga asoslangan (MIT). Kirill, amaldagi lotin va 2026-yilgi yangi lotin
+          alifbolari o‘rtasida o‘giradi.
+        </p>
       </div>
     </PageShell>
   );

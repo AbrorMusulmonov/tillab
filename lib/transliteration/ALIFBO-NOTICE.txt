@@ -1,0 +1,4 @@
+Conversion routing, review grouping, and Word (.docx) rewriting
+are adapted from alifbo (https://github.com/azakapro/alifbo)
+Copyright (c) 2026 alifbo contributors
+Released under the MIT License.

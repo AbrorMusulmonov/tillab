@@ -99,3 +99,5 @@ export type DatasetStats = {
 };
 
 export type TransliterateDirection = "latin-to-cyrillic" | "cyrillic-to-latin";
+export type AlphabetChoice = "auto" | "cyrillic" | "old-latin" | "new-latin";
+export type AlphabetTarget = "cyrillic" | "old-latin" | "new-latin";
