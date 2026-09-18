@@ -100,10 +100,12 @@ export async function analyzeUzbekText(text: string): Promise<TextAnalysis> {
     } catch (error) {
       aiAvailable = false;
       const message = error instanceof Error ? error.message : "";
+      console.error("AI tahlil xatosi:", message);
       if (message.includes("401")) {
         aiMessage = "Groq kaliti rad etildi. Vercel’da AI_API_KEY qiymatini tekshiring va Redeploy qiling.";
       } else if (message.includes("403")) {
-        aiMessage = "Groq bu modelni tashkilotda yopib qo‘ygan. Boshqa modelga o‘tkazildi, qayta urinib ko‘ring.";
+        aiMessage =
+          "Groq hisobida bu model yopiq. console.groq.com/settings/limits sahifasida modelni yoqing.";
       } else if (/timeout|AbortError/i.test(message)) {
         aiMessage = "Groq javob berishga ulgurmadi. Qayta urinib ko‘ring.";
       } else {
