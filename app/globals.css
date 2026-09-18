@@ -71,3 +71,26 @@ select:focus-visible {
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, #000 20%, transparent 75%);
 }
+
+@keyframes banner-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.banner-marquee {
+  animation: banner-marquee 28s linear infinite;
+}
+
+.group:hover .banner-marquee {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner-marquee {
+    animation: none;
+  }
+}
